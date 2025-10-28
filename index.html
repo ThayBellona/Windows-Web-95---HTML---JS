@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sites dos Alunos - Windows 95</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./src/css/padrão.css" rel="stylesheet">
+  <link href="./src/css/hotbar.css" rel="stylesheet">
+  <link href="./src/css/index.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./src/css/assistente.css"> 
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./src/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./src/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./src/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="./src/img/favicon/site.webmanifest">
+</head>
+<body>
+    <!--Área de Trabalho -->
+    <a href="https://github.com/ThiagoGterceiro/Windows-Web-95" target="_blank" >
+    <div class="desktop-icon">  
+      <img src="./src/img/computer_2_cool-4.png" alt="Ícone do Computador" class="desktop-icon-img">
+    <span class="icon-label">Computador</span> </a>
+    </div>
+  
+    <a href="https://github.com/ThiagoGterceiro" target="_blank" >
+      <div class="desktop-icon">  
+        <img src="./src/img/github-icon.png" alt="Ícone do Computador" class="desktop-icon-img">
+      <span class="icon-label">GitHub.exe</span></a>
+      </div>
+    
+    <div class="desktop-icon" onclick="alternarWallpaper()">
+      <div class="wallpaper-icon">
+        <span class="icon-label"><img src="./src/img/icone_galeria.png" alt="Ícone de alternar wallpaper" class="desktop-icon-img">Wallpaper</span>
+      </div>
+    </div>
+
+    <div class="desktop-icon" onclick="restaurar('alunosSite')">
+      <div class="wallpaper-icon">
+        <span class="icon-label" ><img src="./src/img/sites.png" alt="Ícone de sites" class="desktop-icon-img">Sites.exe</span>
+      </div>
+    </div>
+
+  <!-- Ícone da pasta -->
+<div class="desktop-icon" onclick="abrirPasta()">
+  <div class="folder-icon">
+      <img src="./src/img/iconepasta.png" alt="Ícone da Pasta" class="desktop-icon-img">
+      <span class="icon-label">Pasta</span>
+  </div>
+</div>
+
+<div class="desktop-icon" onclick="alternarAssistente()">
+  <div class="assistant-icon">
+    <span class="icon-label">
+      <img src="./src/img/clippy.png" alt="Ícone do Assistente" class="desktop-icon-img">
+      Clipizinho.exe
+    </span>
+  </div>
+</div>
+
+<div class="desktop-icon" onclick="abrirLixeira()">
+  <div class="trash-icon">
+    <span class="icon-label">
+      <img src="./src/img/lixeira.png" alt="Ícone da Lixeira" class="desktop-icon-img">Lixeira
+    </span>
+  </div>
+</div>
+
+<div class="window" id="trashWindow" style="display: none; width: 600px; height: 400px;">
+  <div class="title-bar">
+    <span>Lixeira</span>
+    <button style="background-color: rgb(247, 9, 9);" onclick="fechar('trashWindow')">X</button>
+  </div>
+  <div class="window-content" id="trashContent">
+    <div class="desktop-icon">
+      <img src="./src/img/txticon.png" alt="Ícone de Texto.txt" class="desktop-icon-img">
+      <span class="icon-label">Texto.txt</span>
+    </div>   
+    <div class="desktop-icon">
+      <img src="./src/img/Doom (classic).png" alt="Ícone de Texto.txt" class="desktop-icon-img">
+      <span class="icon-label" style="font-size: small;">Doom_<bR>Sem_Virus.exe</span>
+    </div>   
+    <div class="desktop-icon" >
+      <img src="./src/img/virus.png" style="width: 70%;"alt="Ícone de Texto.txt" class="desktop-icon-img">
+      <span class="icon-label"style="font-size: small;">virus_<br>maligno.exe</span>
+    </div>      
+  </div>
+  <button onclick="limparLixeira()">Limpar Lixeira</button>
+</div>
+
+<!-- Janela da pasta (inicialmente oculta) -->
+<div class="window"style="display: none; width: 600px; height: 400px;"  id="pastaWindow" style="display: none;">
+  <div class="title-bar" id="titulo1">
+      <span>Pasta de Arquivos</span>
+      
+      <div>
+        <button onclick="minimizar('pastaWindow')" >_</button>
+        <button style="background-color: rgb(247, 9, 9);" onclick="fechar('pastaWindow')">X</button>
+      </div>
+  </div>
+  <div class="content-pasta">
+      <div class="desktop-icon">
+        <a href="./banda.html" target="_blank" >
+          <img src="./src/img/bandaicon.png" alt="Ícone de Arquivo Corrompido" class="desktop-icon-img">
+          <span class="icon-label" style="font-size: small;">A̠̣̔͗͛̇͟rͥ̎͏̰̤q̘͕̻͓͍͑̕uͣ̿͏̖̻ǐ̳̰ͬͯ̕v̞̠͍̖́̚o̢͔͇͔͙ͤ̒ͅͅ???</span></a>
+      </div>
+
+      <div class="desktop-icon" onclick="abrirNotepad()">
+        <img src="./src/img/txticon.png" alt="Ícone de Daruek.txt" class="desktop-icon-img">
+        <span class="icon-label">Daruek.txt</span>
+    </div>    
+      
+      <div class="desktop-icon" onclick="abrirPlayerMusica()">
+        <img src="./src/img/musica icon.png" alt="Ícone de Música" class="desktop-icon-img">
+        <span class="icon-label" style="font-size: small;">Musica_<br>gratuita_<br>DVD<Br>AoVivo.mp3</span>
+    </div>
+    
+  </div>
+</div>
+
+<!--  Player de Música  -->
+<div class="window" id="musicPlayerWindow" style="display: none; width: 340px; height: 340px;">
+  <div class="title-bar" id="titulo1">
+      <span>Windows Media Player</span>
+      <div>
+        <button onclick="minimizar('musicPlayerWindow')">_</button>
+        <button style="background-color: rgb(247, 9, 9);" onclick="fechar('musicPlayerWindow'); fecharPlayerMusica();">X</button>
+      </div>
+  </div>
+    <div class="content" style="text-align: center; padding: 10px;">
+      <audio id="audioPlayer" src="./src/music/Iframe Mogno - Dark Side [GDCK_UZ-2fY].mp3"></audio>
+
+      <div style="margin-bottom: 10px;">
+          <img src="./src/img/album1.jpg" alt="Ícone da Música" id="musicIcon" style="width: 50px; height: 50px;">
+      </div>
+
+      <p style="font-weight: bold;">Musica_gratuita_DVDAoVivo.mp3</p>
+
+      <div>
+          <button onclick="playMusic()"> ▶ </button>
+          <button onclick="pauseMusic()"> ❚❚ </button>
+          <button onclick="stopMusic()"> ◼ </button>
+      </div>
+
+      <br>
+
+      <!-- Barra de progresso -->
+      <input type="range" id="progressBar" value="0" max="100" step="1" style="width: 80%;" onchange="seekMusic(this.value)">
+      <p id="currentTime">0:00 / 0:00</p>
+
+      <!-- Controle de Volume -->
+      <p>Volume</p>
+      <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" style="width: 80%;" onchange="setVolume(this.value)">
+  </div>
+
+</div>
+
+<div class="assistant" id="assistant">
+  <!-- A imagem do assistente vai mudar dinamicamente -->
+  <img id="assistant-img" src="./src/gif/clippy-white-12.gif" alt="Assistente Virtual">
+  <div class="speech-bubble" id="speech">
+      <p id="speech-text">Olá! Posso te ajudar com algo?</p>
+      <button onclick="nextMessage()">Próximo</button>
+  </div>
+</div>
+
+<!-- Janela do Bloco de Notas (inicialmente oculta) -->
+<div class="window" id="notepadWindow" style="display: none; width: 400px; height: 300px;">
+  <div class="title-bar" id="titulo1">
+      <span>Bloco de Notas - Daruek.txt</span>
+      <div>
+        <button onclick="minimizar('notepadWindow')">_</button>
+        <button style="background-color: rgb(247, 9, 9);" onclick="fechar('notepadWindow')">X</button>
+      </div>
+  </div>
+  <div class="content">
+      <textarea id="notepadContent" style="width: 100%; height: 100%; border: none; outline: none; background: #fff; padding: 10px;">
+      Porfavor n me processa por uso ilegal de direitos autorais 
+      </textarea>
+  </div>
+</div>
+
+<!-- Janela do Bloco de Notas (inicialmente oculta) -->
+<div class="window" id="notepadWindow1" style="display: none; width: 30vw; height: 50vh; position: fixed; top: 0; left: 0; z-index: 50;">
+  <div class="title-bar" id="titulo1" style="background-color: #333; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+      <span>Bloco de Notas</span>
+      <div>
+        <button onclick="minimizar('notepadWindow1')">_</button>
+        <button style="background-color: rgb(247, 9, 9);" onclick="fechar('notepadWindow1')">X</button>
+      </div>
+  </div>
+  <div class="content" style="display: flex; height: calc(100vh - 50px);">
+      <textarea id="notepadContent" style="width: 100%; height: 100%; border: none; outline: none; background: #fff; padding: 10px; box-sizing: border-box;"></textarea>
+  </div>
+</div>
+
+    
+
+<!-- Janela para colocar os sites -->
+<div class="window" id="alunosSite" style="display: none;">
+  <div class="title-bar" id="titulo1">
+      <span>Sites dos Alunos</span>
+      <div>
+          <button onclick="minimizar('alunosSite')" >_</button>
+          <button style="background-color: rgb(247, 9, 9);" onclick="fechar('alunosSite')">X</button>
+      </div>
+  </div>
+  <div class="content" id="conteudo1">
+      <p>Bem-vindo à lista de sites desenvolvidos pelos alunos do curso de Sistemas para Internet do IFAC - 2° periodo de 2025!</p>
+      <div class="row">
+          <!-- Card com as informacoes do site -->
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+              <div class="student-card">
+                  <img src="./src/img/transcender.png" alt="Foto do site Transcender" class="site-photo">
+                  <h5>Thay Guimarães</h5>
+                  <p>Site focado em dar apoio à comunidade LGBTQIAPN+, com notícias, documentos e artistas.</p>
+                  <p class="student-info"><strong>Nome do site:</strong> Transcender</p>
+                  <a href="https://thiagogterceiro.github.io/Transcender/" class="button-95" target="_blank">Acessar</a>
+              </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+              <div class="student-card">
+                  <img src="./src/img/aphibians.png" alt="Foto do site Segundo Site" class="site-photo">
+                  <h5>Anna Julia</h5>
+                  <p>Site focado em promover informações sobre os anfíbios.</p>
+                  <p class="student-info"><strong>Nome do site:</strong> Amphibians</p>
+                  <a href="https://julia-alt-0w0.github.io/Amphibians/index.html" class="button-95" target="_blank">Acessar</a>
+              </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+              <div class="student-card">
+                  <img src="./src/img/excomungados.png" alt="Foto do site Terceiro Site" class="site-photo">
+                  <h5>Lucas Alefe</h5>
+                  <p>Site dedicado à banda Excomungados.</p>
+                  <p class="student-info"><strong>Nome do site:</strong> Excomungados</p>
+                  <a href="https://luqalefe.github.io/excomungado-web/" class="button-95" target="_blank">Acessar</a>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 mb-4">
+              <div class="student-card">
+                  <img src="./src/img/mãeacolhimento.png" alt="Foto do site Quarto Site" class="site-photo">
+                  <h5>Sarah Katryne</h5>
+                  <p>Site dedicado ao acolhiemnto, apoio e bem-estar de mães</p>
+                  <p class="student-info"><strong>Nome do site:</strong> Mães Acolhidas</p>
+                  <a href="https://sarakatryne.github.io/Pagina-Web/index.html" class="button-95"  target="_blank" >Acessar</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+    <div class="window" id="infoWindow" style="display: none; width: 400px; height: 300px;">
+      <div class="title-bar">
+          <span>Informações do Sistema</span>
+          <div>
+              <button onclick="fecharInfo()" style="background-color: rgb(247, 9, 9); color: white; border: none; padding: 5px;">X</button>
+          </div>
+      </div>
+      <div class="content" style="padding: 20px;">
+          <p><strong>Navegador:</strong> <span id="navegador"></span></p>
+          <p><strong>Sistema Operacional:</strong> <span id="sistemaOperacional"></span></p>
+          <p><strong>Localização:</strong> <span id="localizacao"></span></p>
+      </div>
+  </div>
+
+<!-- Janela de configurações -->
+<div class="window" id="configWindow" style="display: none; width: 400px; height: 430px; ">
+  <div class="title-bar">
+      <span>Configurações</span>
+      <div>
+          <button onclick="fecharConfig()" style="background-color: rgb(247, 9, 9); color: white; border: none; padding: 5px; cursor: pointer;">X</button>
+      </div>
+  </div>
+  <div class="content" style="padding: 20px;">
+    <h5>Escolha as cores:</h5>
+    <label for="title-bar-color">Cor da barra da janela:</label>
+    <input type="color" id="title-bar-color" value="#0000A0">
+    <br>
+    <label for="window-color">Cor das Janelas:</label>
+    <input type="color" id="window-color" value="#C0C0C0">
+    <br>
+    <label for="font-color">Cor da Fonte:</label>
+    <input type="color" id="font-color" value="#000000">
+    <br>
+    <label for="font-family">Fonte:</label>
+    <select id="font-family">
+        <option value="WindowsRegular">WindowsRegular</option>
+        <option value="Comic Sans MS">Comic Sans MS</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Segoe UI">Segoe UI</option>
+    </select>
+    <br>
+    <label for="font-size">Tamanho da Fonte:</label>
+    <select id="font-size">
+        <option value="12px">12px</option>
+        <option value="8px">8px</option>
+        <option value="14px">14px</option>
+        <option value="16px">16px</option>
+        <option value="18px">18px</option>
+        <option value="20px">20px</option>
+    </select>
+    <br>
+    <button onclick="aplicarConfig()">Aplicar</button>
+  </div>  
+</div>
+
+
+    <!-- Hotbar do windows -->
+    <div class="hotbar">
+      <div class="start-button">
+          <img src="./src/img/iniciar.png" alt="Iniciar" class="start-icon">
+          <span>Iniciar</span>
+          <div class="dropbar">
+            <ul>
+              <li><a href="#" onclick="abrirPasta()"><img src="./src/img/documentos.png " style="width: 30%; height: auto;" alt="documentos" class="start-icon">Arquivos</a></li>
+              <li><a href="#"onclick="mostrarInfo()"><img src="./src/img/meu computador.png " style="width: 30%; height: auto;" alt="Bloco de notas" class="start-icon">Meu Computador</a></li>
+              <li><a href="#" onclick="abrirNotepad1()"><img src="./src/img/blocodenotas.png " style="width: 30%; height: auto;" alt="Bloco de notas" class="start-icon">Bloco de Notas</a></li>
+              <li><a href="#"onclick="mostrarConfig()"><img src="./src/img/config.png " style="width: 30%; height: auto;" alt="Configurações" class="start-icon">Configurações</a></li>
+              <li><a href="#"onclick="desligarSistema()"> <img src="./src/img/icone_botao_desligar.png " style="width: 30%; height: auto;" alt="Desligar" class="start-icon">Desligar</a></li>
+            </ul>
+          </div> 
+      </div>
+      <div class="hotbar-windows">
+          <!-- Onde colocar as abas -->
+        <button onclick="restaurar('alunosSite')">
+          <img src="./src/img/cmd.png" alt="Site dos alunos" class="window-icon"> Site dos alunos
+        </button>
+      </div>
+      <div class="hotbar-info">
+          <span id="clock">00:00</span>
+      </div>
+    </div>
+    <!-- Importação do java Scripts -->
+    <script src="./src/js/script.js"></script>
+    <script src="./src/js/assistente.js"></script>
+
+</body>
+</html>
